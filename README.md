@@ -1,10 +1,10 @@
 # alphaconsumerservices.com
 
-> *Alpha Consumer Services is a global consumer service development corporation. We provide whatever is lacking.*
+> *They'll provide what is lacking. They provide everything.*
 
 Live: <https://alphaconsumerservices.com>
 
-A long-running parody of a fictional luxury-services megacorp. Originally built in 2006 on WordPress + Bootstrap 3, with press releases spanning 2005–2012. This repo is a 2026 rebuild as a static Eleventy site — same design, same content, no PHP runtime.
+The website of Alpha Consumer Services — a fictional luxury-services megacorp from the [Killing Heat](https://killingheat.com/) film universe, where protagonists Gordon Goldman and John Walker draw their paychecks. First built in 2010 as PHP fetching static HTML; rebuilt in 2015 on WordPress with a custom Bootstrap 3 theme; rebuilt again in 2026 as this static Eleventy site — same content, no PHP runtime, no WordPress to maintain. Much of the in-universe copy (Site Terms, Privacy Policy, FAQ) was hand-typed by Kenny Wang long before LLMs existed.
 
 ## What's missing from this repo?
 
@@ -20,7 +20,7 @@ The Corporation does not distribute proprietary marketing assets or vendored typ
 ## Tech
 
 - **Eleventy 3.1** — Nunjucks templates, static HTML output
-- **Bootstrap 3 era** CSS — preserved verbatim from the original 2006 theme
+- **Bootstrap 3 era** CSS — preserved verbatim from the 2015 WordPress theme
 - **jQuery 3.7 + Jasny offcanvas** — for the slide-out side menu
 - **PhotoSwipe 5** — image lightbox
 - **Custom AJAX nav** — replaces the WordPress Ajaxify plugin with a partial-swap pattern that syncs `#main` content + `#page` wrapper classes
@@ -36,9 +36,11 @@ npm start         # eleventy --serve, watches src/ for changes
 
 The author serves the build from Laragon locally with the hosts file mapping `alphaconsumerservices.com` → `127.0.0.1`, so the project runs at its real domain in development.
 
-## Notable conversion choices (2006 → 2026)
+## Notable conversion choices (2015 WordPress → 2026 Eleventy)
 
-- WordPress + PHP runtime → static Eleventy output
+The 2015 WordPress site was first scraped to static HTML with [HTTrack](https://www.httrack.com/) to retire the database and PHP runtime. That HTML was then rebuilt as Eleventy templates with the dynamic bits replaced:
+
+- WordPress + PHP runtime → static Eleventy output (Nunjucks)
 - `?id=XXX` query-string routing → clean URLs
 - Ajaxify plugin → custom `ajax-nav.js` (PJAX-style partial nav)
 - Contact Form 7 → static "form temporarily unavailable" notice
