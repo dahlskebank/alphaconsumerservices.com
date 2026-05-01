@@ -1,0 +1,13 @@
+<div id="secondary" class="col-sm-5 col-md-5 col-lg-4" role="complementary">
+  <div id="sidebar" class="widget-area">
+    <aside class="widget widget_text">
+      <h3 class="widget-title">Latest press releases</h3>
+      <div class="textwidget">
+        {% for post in collections.posts | limit(2) %}
+        <h4><a href="{{ post.url }}">{{ post.data.title }}</a></h4>
+        <div class="small dd-small">{{ post.data.excerpt }}</div>
+        {% endfor %}
+      </div>
+    </aside>
+  </div>
+</div>

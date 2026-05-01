@@ -1,0 +1,39 @@
+---
+layout: layouts/page.njk
+title: Sitemap
+permalink: /sitemap/
+---
+<h2>Main</h2>
+<ul>
+  {% for item in navigation.main %}
+  <li><a href="{{ item.url }}">{{ item.title | safe }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Products &amp; Services</h2>
+<ul>
+  <li><a href="/services/">Products &amp; Services</a></li>
+  <li><a href="/services/alpha-consumer-card/">Alpha Consumer Card</a></li>
+  <li><a href="/services/alpha-consumer-platinum-card/">Alpha Consumer Platinum Card</a></li>
+</ul>
+
+<h2>Press releases</h2>
+<ul>
+  {% for post in collections.posts %}
+  <li><a href="{{ post.url }}">{{ post.data.title }}</a> <span class="small text-muted">({{ post.date | dateDisplay }})</span></li>
+  {% endfor %}
+</ul>
+
+<h2>Archives</h2>
+<ul>
+  <li><a href="/category/news/">News</a></li>
+  <li><a href="/tag/alpha-consumer-card/">Tagged: Alpha Consumer Card</a></li>
+</ul>
+
+<h2>Legal &amp; other</h2>
+<ul>
+  <li><a href="/site-terms/">Site Terms</a></li>
+  <li><a href="/privacy-policy/">Privacy Policy</a></li>
+  <li><a href="/faq/">Frequently Asked Questions</a></li>
+  <li><a href="/sitemap/">Sitemap</a></li>
+</ul>

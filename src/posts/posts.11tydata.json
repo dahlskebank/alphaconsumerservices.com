@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/post.njk",
+  "tags": ["posts"],
+  "categories": ["News"],
+  "ogType": "article",
+  "permalink": "/{{ page.fileSlug }}/"
+}

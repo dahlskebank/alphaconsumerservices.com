@@ -1,0 +1,65 @@
+<div class="nav-wrapper-top">
+  <nav class="navbar navbar-default navbar-static-top top-navigation" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".top-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse top-navbar-collapse">
+        <div class="nav navbar-nav navbar-right">
+          <a href="#" id="dd-btn-contrast" class="btn btn-link navbar-btn dd-contrast-toggle">
+            <i class="fa fa-fw fa-adjust"></i>Toggle Contrast
+          </a>
+          <a href="#" id="dd-font-size" class="btn btn-link navbar-btn hidden-xs" data-toggle="modal" data-target="#text-size">
+            <i class="fa fa-fw fa-font"></i>Enlarge Text
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<header id="masthead" class="site-header" role="banner">
+  <div class="site-branding">
+    <div class="container">
+      <object class="header-logo" type="image/svg+xml" data="/assets/images/acs-logo-1-optimised.svg">Your browser does not support SVG</object>
+      <h1 class="site-title">
+        <a href="/" rel="home">{{ site.title }}</a>
+      </h1>
+      <h2 class="site-description">{{ site.description }}</h2>
+    </div>
+  </div>
+</header>
+
+<div class="container dB_Header">
+  <img src="/assets/images/cropped-header-beach.jpg" width="1140" height="400" alt="header-image" class="header-image" />
+</div>
+<div class="container HC_Header">
+  <img src="/assets/images/cropped-header-beach-high-contrast.jpg" width="1140" height="400" alt="header-image-hc" class="header-image-hc" />
+  <img src="/assets/images/cropped-header-beach-high-contrast-mobile.jpg" width="1140" height="400" alt="header-image-hc" class="header-image-hc-mobile" />
+</div>
+
+<div class="nav-wrapper-main container">
+  <nav id="site-navigation" class="navbar navbar-default main-navigation" role="navigation">
+    <ul class="nav navbar-nav">
+      {% for item in navigation.main %}
+      <li class="menu-item{% if item.children %} menu-item-has-children dropdown{% endif %}{% if page.url == item.url %} active{% endif %}">
+        {% if item.children %}
+        <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ item.title | safe }} <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          {% for child in item.children %}
+          <li><a href="{{ child.url }}">{{ child.title | safe }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <a href="{{ item.url }}">{{ item.title | safe }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

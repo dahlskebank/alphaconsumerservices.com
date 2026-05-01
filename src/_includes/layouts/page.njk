@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+<div id="page" class="hfeed site container">
+  <div id="content" class="site-content row">
+
+    <div id="primary" class="content-area col-sm-7 col-md-7 col-lg-8">
+      <main id="main" class="site-main" role="main">
+        <article class="page type-page status-publish hentry">
+          <header class="entry-header">
+            <h1 class="entry-title">{{ title }}</h1>
+          </header>
+
+          {% if lead %}
+          <div class="lead">{{ lead | safe }}</div>
+          {% endif %}
+
+          <div class="entry-content">
+            {{ content | safe }}
+          </div>
+
+          <footer class="entry-footer"></footer>
+        </article>
+      </main>
+    </div>
+
+    {% include "partials/sidebar.njk" %}
+
+  </div>
+</div>

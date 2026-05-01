@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="view-transition" content="same-origin" />
+<script>
+(function() {
+  var c = localStorage.getItem('contrast');
+  if (c) { document.documentElement.className = c; }
+})();
+</script>
+<title>{% if seoTitle %}{{ seoTitle }}{% elif title %}{{ title }} &#8211; {{ site.title }} &#8211; {{ site.description }}{% else %}{{ site.title }} &#8211; {{ site.description }}{% endif %}</title>
+<meta name="description" content="{{ description or excerpt or site.description }}">
+{% if keywords %}<meta name="keywords" content="{{ keywords }}">
+{% endif %}<meta name="robots" content="{{ robots or 'index, follow' }}">
+{% set defaultOgImage = site.url ~ '/assets/images/og-image.jpg' %}
+<meta property="og:title" content="{{ ogTitle or seoTitle or title or site.title }}">
+<meta property="og:description" content="{{ ogDescription or description or excerpt or site.description }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ ogImage or defaultOgImage }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ ogTitle or seoTitle or title or site.title }}">
+<meta name="twitter:description" content="{{ ogDescription or description or excerpt or site.description }}">
+<meta name="twitter:image" content="{{ ogImage or defaultOgImage }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="stylesheet" href="/assets/css/fonts.css" />
+<link rel="stylesheet" href="/assets/css/bootstrap-alpha.css" />
+<link rel="stylesheet" href="/assets/css/theme-alpha.css" />
+<link rel="stylesheet" href="/assets/css/dahlskebank.css" />
+<link rel="stylesheet" href="/assets/css/photoswipe.css" />
+<link rel="stylesheet" href="/assets/fonts/font-awesome/font-awesome.min.css" />
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ACS" />
+<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Alpha Consumer Services",
+  "url": "https://alphaconsumerservices.com/",
+  "description": "We provide whatever is lacking – personalized luxury consumer services and the revolutionary Alpha Consumer Card.",
+  "logo": "https://alphaconsumerservices.com/assets/images/acs-logo-favicon-dark.png"
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RVLJ9H5SX1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RVLJ9H5SX1');
+</script>
+<script src="/assets/javascript/jquery.min.js"></script>
+</head>
+
+<body class="layout-default {% block bodyClass %}{% endblock %}">
+<a class="skip-link sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+{% include "partials/header.njk" %}
+
+{{ content | safe }}
+
+{% include "partials/footer.njk" %}
+{% include "partials/cookie-notice.njk" %}
+
+<div id="toTop" class="btn btn-primary">
+  <i class="fa fa-chevron-up"></i>
+</div>
+
+<div class="offcanvas-open-left">
+  <a href="#" class="btn btn-primary navbar-btn"><i class="fa fa-bars"></i></a>
+</div>
+<div id="offcanvas-left" class="offcanvas" role="complementary">
+  <div class="nano">
+    <div class="nano-content">
+    <div class="offcanvas-wrapper well well-lg">
+
+<div class="text-center">
+	<object class="header-logo-sidebar" type="image/svg+xml" data="/assets/images/acs-logo-1-optimised.svg">Your browser does not support SVG</object>
+</div>
+
+      <aside class="widget widget_nav_menu">
+        <h3 class="widget-title">Navigation</h3>
+		<div class="menu-menu_sidebar-container">
+        <ul class="menu">
+          {% for item in navigation.sidebar %}
+          <li class="menu-item{% if item.children %} menu-item-has-children{% endif %}{% if page.url == item.url %} active{% endif %}">
+            <a href="{{ item.url }}">{{ item.title | safe }}</a>
+            {% if item.children %}
+            <ul class="sub-menu">
+              {% for child in item.children %}
+              <li class="menu-item"><a href="{{ child.url }}">{{ child.title | safe }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+		</div>
+      </aside>
+
+<div class="text-center">
+          <a href="#" class="btn btn-warning dd-contrast-toggle">
+            <i class="fa fa-fw fa-adjust"></i>Toggle Contrast
+          </a>
+</div>
+
+	</div>
+    </div>
+  </div>
+</div>
+
+<!-- Enlarge text modal -->
+<div class="modal fade" id="text-size" tabindex="-1" role="dialog" aria-labelledby="text-size-label">
+  <div class="modal-dialog modal-lg" role="document">
+
+<div class="modal-content">
+	<button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Close</span>
+	</button>
+	<div class="jumbotron text-center">
+		<div class="lead h1">Hold down the CTRL key. Press + to enlarge or - to shrink.</div>
+		<button type="button" class="btn btn-link btn-lg btn-block" data-dismiss="modal">
+			Click here or press the ESC key to close this message</button>
+	</div>
+</div>
+
+  </div>
+</div>
+
+<script src="/assets/javascript/bootstrap.min.js"></script>
+<script src="/assets/javascript/offcanvas.js"></script>
+<script src="/assets/javascript/main.js"></script>
+<script src="/assets/javascript/ajax-nav.js"></script>
+<script type="module">
+  import PhotoSwipeLightbox from '/assets/javascript/photoswipe-lightbox.esm.min.js';
+  import PhotoSwipe from '/assets/javascript/photoswipe.esm.min.js';
+  function initLightbox() {
+    const lb = new PhotoSwipeLightbox({
+      gallery: '.entry-content',
+      children: 'a[data-pswp-width]',
+      pswpModule: PhotoSwipe,
+      wheelToZoom: true
+    });
+    lb.init();
+    return lb;
+  }
+  let lb = initLightbox();
+  window.reinitPhotoSwipe = () => { lb.destroy(); lb = initLightbox(); };
+</script>
+</body>
+</html>

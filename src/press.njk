@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+title: Press Room
+permalink: /press/
+seoTitle: "Press Room | News & Press Releases – Alpha Consumer Services"
+description: "Stay up to date with the latest news and press releases from Alpha Consumer Services – from product launches and global expansion to award-winning advertising campaigns."
+keywords: "Alpha Consumer Services press room, ACS news, Alpha Consumer Card press releases, ACS announcements"
+ogTitle: "Alpha Consumer Services Press Room"
+ogDescription: "The latest news and press releases from Alpha Consumer Services – global expansion, the Alpha Consumer Card, and more."
+---
+<div id="page" class="hfeed site container blog">
+  <div id="content" class="site-content row">
+
+    <div id="primary" class="content-area col-sm-7 col-md-7 col-lg-8">
+      <main id="main" class="site-main" role="main">
+
+        <header class="page-header">
+          <h1 class="page-title">Press room</h1>
+        </header>
+
+        {% for post in collections.posts %}
+        <article class="post type-post status-publish hentry">
+          <header class="entry-header">
+            <h2 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.data.title }}</a></h2>
+            <div class="entry-meta">
+              <span class="posted-on">Posted on <a href="{{ post.url }}" rel="bookmark"><time class="entry-date published" datetime="{{ post.date | htmlDateString }}">{{ post.date | dateDisplay }}</time></a></span>
+              {% if post.data.author %}
+              <span class="byline"> by <span class="author vcard"><a class="author-url" href="{{ post.url }}">{{ post.data.author }}</a></span></span>
+              {% endif %}
+            </div>
+          </header>
+          <div class="entry-summary">
+            <p>{{ post.data.excerpt }} <a class="more-link" href="{{ post.url }}">Continue Reading &raquo;</a></p>
+          </div>
+          <footer class="entry-footer">
+            {% if post.data.categories %}
+            <span class="cat-links">Posted in
+              {% for cat in post.data.categories %}
+              <a href="/category/{{ cat | slugify }}/" rel="category tag">{{ cat }}</a>
+              {% endfor %}
+            </span>
+            {% endif %}
+            {% set visibleTags = post.data.tags | withoutTag("posts") %}
+            {% if visibleTags.length %}
+            <span class="tags-links">Tagged
+              {% for tag in visibleTags %}
+              <a href="/tag/{{ tag | slugify }}/" rel="tag">{{ tag }}</a>
+              {% endfor %}
+            </span>
+            {% endif %}
+          </footer>
+        </article>
+        {% endfor %}
+
+      </main>
+    </div>
+
+    {% include "partials/sidebar.njk" %}
+
+  </div>
+</div>

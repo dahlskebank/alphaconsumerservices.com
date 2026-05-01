@@ -1,0 +1,44 @@
+{
+	"main": [
+		{ "title": "Home", "url": "/" },
+		{ "title": "About Us", "url": "/about/" },
+		{ "title": "Press Room", "url": "/press/" },
+		{
+			"title": "Products &amp; Services",
+			"url": "/services/"
+		},
+		{ "title": "Investor Relations", "url": "/investor/" },
+		{ "title": "Contact Us", "url": "/contact/" }
+	],
+	"sidebar": [
+		{ "title": "Home", "url": "/" },
+		{ "title": "About Us", "url": "/about/" },
+		{ "title": "Press Room", "url": "/press/" },
+		{
+			"title": "Products &amp; Services",
+			"url": "/services/",
+			"children": [
+				{
+					"title": "Alpha Consumer Card",
+					"url": "/services/alpha-consumer-card/"
+				},
+				{
+					"title": "Alpha Consumer Platinum Card",
+					"url": "/services/alpha-consumer-platinum-card/"
+				}
+			]
+		},
+		{ "title": "Investor Relations", "url": "/investor/" },
+		{ "title": "Contact Us", "url": "/contact/" },
+		{ "title": "Site Terms", "url": "/site-terms/" },
+		{ "title": "Privacy Policy", "url": "/privacy-policy/" },
+		{ "title": "Frequently Asked Questions", "url": "/faq/" }
+	],
+	"footer": [
+		{ "title": "Site Terms", "url": "/site-terms/" },
+		{ "title": "Privacy Policy", "url": "/privacy-policy/" },
+		{ "title": "FAQ", "url": "/faq/" },
+		{ "title": "Sitemap", "url": "/sitemap/" },
+		{ "title": "Contact Us", "url": "/contact/" }
+	]
+}

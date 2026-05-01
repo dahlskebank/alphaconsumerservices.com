@@ -1,0 +1,80 @@
+<div class="container">
+
+<div class="footer-sidebar-row row">
+  <aside class="sidebar widget col-sm-4">
+	<h3 class="widget-title">Popular services</h3>
+	<div class="textwidget">
+	  <h4><a href="/services/alpha-consumer-card/">Alpha Consumer Card</a></h4>
+	  <p>Enjoy world-class services and products with our new and improved credit card.</p>
+	  <h4><a href="/services/alpha-consumer-platinum-card/">Alpha Consumer Platinum Card</a></h4>
+	  <p>The no holds barred choice in the ultimate method for redemption.</p>
+	</div>
+  </aside>
+
+  <aside class="sidebar widget col-sm-4">
+	<h3 class="widget-title">Social media</h3>
+	<a rel="noopener noreferrer nofollow" href="https://www.facebook.com/alphaconsumerservices" target="_blank" class="social-icon facebook" aria-label="Facebook">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L258.2 544L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/></svg>
+	</a>
+	<a rel="noopener noreferrer nofollow" href="https://www.youtube.com/gordongoldman" target="_blank" class="social-icon youtube" aria-label="YouTube">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z"/></svg>
+	</a>
+	<a rel="noopener noreferrer nofollow" href="https://www.facebook.com/alphaconsumercard" target="_blank" class="social-icon facebook" aria-label="Facebook (Alpha Consumer Card)">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L258.2 544L258.2 398.2L205.4 398.2L205.4 320L258.2 320L258.2 286.3C258.2 199.2 297.6 158.8 383.2 158.8C399.4 158.8 427.4 162 438.9 165.2L438.9 236C432.9 235.4 422.4 235 409.3 235C367.3 235 351.1 250.9 351.1 292.2L351.1 320L434.7 320L420.3 398.2L351 398.2L351 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/></svg>
+	</a>
+  </aside>
+
+  <aside class="sidebar widget col-sm-4">
+	<h3 class="widget-title">Member login</h3>
+	<p>To log in, enter your Alpha Account Number and password and click on the log in button below.</p>
+	<form role="form" method="post" class="well well-sm" action="https://alphaconsumerservices.com/err-23">
+	  <fieldset>
+		<div class="form-group input-group">
+		  <input class="form-control" placeholder="Alpha Account Number" required />
+		  <span class="input-group-addon"><i class="fa fa-fw fa-lg fa-at"></i></span>
+		</div>
+		<div class="form-group input-group">
+		  <input class="form-control" placeholder="Password" name="password" type="password" required />
+		  <span class="input-group-addon"><i class="fa fa-fw fa-lg fa-lock"></i></span>
+		</div>
+		<button type="submit" class="btn btn-info btn-block">Log in</button>
+	  </fieldset>
+	</form>
+  </aside>
+</div>
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="footer-navigation">
+	<ul class="list-inline menu">
+	  {% for item in navigation.footer %}
+	  <li class="menu-item"><a href="{{ item.url }}">{{ item.title | safe }}</a></li>
+	  {% endfor %}
+	</ul>
+  </div>
+  <div class="site-info">
+	Copyright <i class="fa fa-copyright"></i> 2006—2026 <a href="/" title="{{ site.description }} v3.1.2" class="nobr">{{ site.title }}</a>. <span class="nobr">All rights reserved.</span>
+  </div>
+
+<div class="developer">
+	<i class="fa fa-angle-double-left fa-fw" aria-hidden="true"></i>
+	<a href="https://dfault.it/" target="_blank" rel="noopener noreferrer" title="D-FAULT PENDING" class="">DFp</a>
+&thinsp;
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+&thinsp;
+	<a href="https://dahlskebank.com/" target="_blank" rel="noopener noreferrer" title="Dahlske Bank" class="dd-mobile-fix">dB</a>
+&thinsp;
+	<i class="fa fa-angle-left" aria-hidden="true"></i>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+&thinsp;
+	<a href="https://danieldahl.com/" target="_blank" rel="noopener noreferrer" title="Daniel Dahl" class="dd-mobile-fix">dD</a>
+&thinsp;
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+&thinsp;
+	<a href="https://dxd.no/" target="_blank" rel="noopener noreferrer" title="deus ex Dahl" class="dd-mobile-fix">dxD</a>
+	<i class="fa fa-angle-double-right fa-fw" aria-hidden="true"></i>
+</div>
+
+</footer>
+</div>

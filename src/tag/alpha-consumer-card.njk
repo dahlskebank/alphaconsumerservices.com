@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+title: "Tag: Alpha Consumer Card"
+permalink: /tag/alpha-consumer-card/
+---
+<div id="page" class="hfeed site container blog">
+  <div id="content" class="site-content row">
+
+    <div id="primary" class="content-area col-sm-7 col-md-7 col-lg-8">
+      <main id="main" class="site-main" role="main">
+
+        <header class="page-header">
+          <h1 class="page-title">Tag: Alpha Consumer Card</h1>
+        </header>
+
+        {% for post in collections.posts | reverse %}
+        {% if "Alpha Consumer Card" in post.data.tags %}
+        <article class="post type-post status-publish hentry">
+          <header class="entry-header">
+            <h2 class="entry-title"><a href="{{ post.url }}" rel="bookmark">{{ post.data.title }}</a></h2>
+            <div class="entry-meta">
+              <span class="posted-on">Posted on
+                <time class="entry-date published" datetime="{{ post.date | htmlDateString }}">{{ post.date | dateDisplay }}</time>
+              </span>
+            </div>
+          </header>
+          <div class="entry-summary">
+            <p>{{ post.data.excerpt }} <a class="more-link" href="{{ post.url }}">Continue Reading &raquo;</a></p>
+          </div>
+        </article>
+        {% endif %}
+        {% endfor %}
+
+      </main>
+    </div>
+
+    {% include "partials/sidebar.njk" %}
+
+  </div>
+</div>

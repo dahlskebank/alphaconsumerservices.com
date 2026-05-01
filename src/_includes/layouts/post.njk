@@ -1,0 +1,78 @@
+---
+layout: layouts/base.njk
+---
+<div id="page" class="hfeed site container single">
+  <div id="content" class="site-content row">
+
+    <div id="primary" class="content-area col-sm-7 col-md-7 col-lg-8">
+      <main id="main" class="site-main" role="main">
+        <article class="post type-post status-publish hentry">
+          <header class="entry-header">
+            <h1 class="entry-title">{{ title }}</h1>
+            <div class="entry-meta">
+              <span class="posted-on">Posted on <a href="{{ page.url }}" rel="bookmark"><time class="entry-date published" datetime="{{ date | htmlDateString }}">{{ date | dateDisplay }}</time></a></span>
+              {% if author %}
+              <span class="byline"> by <span class="author vcard"><a class="author-url" href="{{ page.url }}">{{ author }}</a></span></span>
+              {% endif %}
+            </div>
+          </header>
+
+          {% if lead %}
+          <div class="lead">{{ lead | safe }}</div>
+          {% endif %}
+
+          <div class="entry-content">
+            {{ content | safe }}
+          </div>
+
+          <footer class="entry-footer">
+            {% if categories %}
+            <span class="cat-links">Posted in
+              {% for cat in categories %}
+              <a href="/category/{{ cat | slugify }}/" rel="category tag">{{ cat }}</a>
+              {% endfor %}
+            </span>
+            {% endif %}
+            {% set visibleTags = tags | withoutTag("posts") %}
+            {% if visibleTags.length %}
+            <span class="tags-links">Tagged
+              {% for tag in visibleTags %}
+              <a href="/tag/{{ tag | slugify }}/" rel="tag">{{ tag }}</a>
+              {% endfor %}
+            </span>
+            {% endif %}
+          </footer>
+        </article>
+
+        {% set currentIndex = collections.posts.length %}
+        {% set prevPost = null %}
+        {% set nextPost = null %}
+        {% for p in collections.posts %}
+          {% if p.url == page.url %}
+            {% set currentIndex = loop.index0 %}
+          {% endif %}
+        {% endfor %}
+        {% if currentIndex < collections.posts.length - 1 %}{% set prevPost = collections.posts[currentIndex + 1] %}{% endif %}
+        {% if currentIndex > 0 %}{% set nextPost = collections.posts[currentIndex - 1] %}{% endif %}
+
+        {% if prevPost or nextPost %}
+        <nav class="navigation post-navigation" role="navigation">
+          <h1 class="sr-only">Post navigation</h1>
+          <ul class="nav-links pager">
+            {% if prevPost %}
+            <li class="previous"><a href="{{ prevPost.url }}" rel="prev"><span class="meta-nav" aria-hidden="true">&laquo;</span>&nbsp;{{ prevPost.data.title }}</a></li>
+            {% endif %}
+            {% if nextPost %}
+            <li class="next"><a href="{{ nextPost.url }}" rel="next">{{ nextPost.data.title }}&nbsp;<span class="meta-nav" aria-hidden="true">&raquo;</span></a></li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+
+      </main>
+    </div>
+
+    {% include "partials/sidebar.njk" %}
+
+  </div>
+</div>
